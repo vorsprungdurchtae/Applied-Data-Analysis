@@ -1,0 +1,41 @@
+Question No.1:
+λ1 = 9
+λ2 = 4
+expectation = 2
+variance = 42.5
+δ11 = 0.5
+δ22 = 0.33
+
+Question No.2:
+v = 1.45
+σ² = 5.37
+x2ϵR = 0
+x1ϵR =   NA
+
+Question No.3:
+a) = -1
+b) = R
+c) = NA
+d) =  -2&1
+e) = 1
+f) NA
+g) 1
+ 
+Question No.4:
+Ratio of female participants =   0,6949153
+Mean of Mean Score for male = 15,55556
+Variance of Mean Score for male = 71,32026
+
+Question No.5:
+Value of Sum of Saving = 1603
+Proportion of observing satisfying age>40 = 0,272
+
+Question No.6:
+Resulting prediction for Pmax - 200 = 11,92083
+Bo(Intercept) =  3,75490609
+B1 =  0,04129407
+
+Question No. 7:
+mean(fitted) = 15,15442
+var(fitted) = 3,524991
+var(residuals) = 1,271082
