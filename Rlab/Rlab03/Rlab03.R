@@ -142,6 +142,8 @@ lm.batch4 = lm(Isc ~ Pmax, data = solar.batch4)
 
 abline(lm.batch4$coefficients, col = "orange")
 
+write.csv(solar,"solar_task10.RData", row.names = FALSE)
+
 
 #######
 #Task11
