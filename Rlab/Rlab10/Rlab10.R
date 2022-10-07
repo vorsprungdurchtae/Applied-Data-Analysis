@@ -66,17 +66,6 @@ mosaic(tab.party,gp=shading_Friendly,residuals=stdres.p.tab,
 mosaic(tab.party,gp=shading_Friendly,residuals=stdres.d.tab,
        residuals_type="Std\nresiduals",labeling=labeling_residuals)
 
-
-
-
-
-
-
-
-
-
-
-
 #############
 #High School
 #############
@@ -166,7 +155,7 @@ mosaic(accident.tab,gp=shading_Friendly,residuals=stdres.p.tab,
 #########
 
 # (a) transfer the data into R Workspace
-I.freq = c(50, 24, 9, 6, 41, 14, 4, 1, 315, 4012, 40, 459, 147, 1594, 11, 124)
+freq = c(50, 24, 9, 6, 41, 14, 4, 1, 315, 4012, 40, 459, 147, 1594, 11, 124)
 G.lb = c("≤ 260", "> 260")
 S.lb = c("< 5", "> 5")
 A.lb = c("< 30", "30 +")
@@ -184,11 +173,21 @@ I = factor(I.ind, labels = I.lb)
 # G <- factor(lay, labels=lay.lb)
 # depres.fr <- data.frame(freq,S,D,G)
 
-gest.fr = data.frame(I.freq, A, S, G, I)
+gest.fr = data.frame(freq, A, S, G, I)
 
 # (c) Fit the models 
 # (AGIS),
-fit.AGIS = glm()
+fit.AGIS = glm(freq ~ A*G*I*S, poisson, data = gest.fr)
+fit.AGIS.AIC = step(fit.AGIS, direction = "backward")
+
+fit.second = glm(freq ~ A*G*I + A*I*S + A*G*S + G*I*S, poisson, data = gest.fr)
+fit.second.AIC = step(fit.second , direction = "backward")
+
+fit.third = glm(freq ~ A*G + A*I + A*S + G*I + G*S + I*S, poisson, data = gest.fr)
+fit.third.AIC = step(fit.third, direction = "backward")
+
+fit.fourth = glm(freq ~ A*S + G + I, poisson, data = gest.fr)
+fit.fourth.AIC = step(fit.fourth, direction = "backward")
 
 #(AGI, AIS, AGS, GIS),
 
